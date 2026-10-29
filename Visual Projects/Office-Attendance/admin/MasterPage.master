@@ -1,0 +1,318 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <title>OfficeTrack - Office Attendance & Payroll Admin</title>
+
+    <!-- Google Fonts & Bootstrap 5 & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    
+    <!-- Admin Custom Styles -->
+    <link rel="stylesheet" href="Assets/css/admin.css" />
+
+    <!-- Head & Stylesheet PlaceHolders -->
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+    <asp:ContentPlaceHolder ID="StylesheetsContent" runat="server"></asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="app-wrapper">
+            <!-- DESKTOP SIDEBAR -->
+            <aside class="app-sidebar" aria-label="Admin Navigation">
+                <div class="sidebar-header">
+                    <a href="dashboard.aspx" class="brand-link">
+                        <div class="brand-icon">
+                            <i class="bi bi-fingerprint"></i>
+                        </div>
+                        <div>
+                            <span>OfficeTrack</span>
+                            <span class="badge bg-secondary ms-1 fs-6" style="font-size: 0.65rem !important; vertical-align: middle;">ADMIN</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="sidebar-nav-container">
+                    <!-- SECTION: MAIN -->
+                    <div class="nav-section-title">Main</div>
+                    <ul class="sidebar-nav">
+                        <li class="nav-item">
+                            <a href="dashboard.aspx" class="nav-link">
+                                <i class="bi bi-grid-1x2-fill"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="Employees.aspx" class="nav-link">
+                                <i class="bi bi-people-fill"></i>
+                                <span>Employees</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="QR.aspx" class="nav-link">
+                                <i class="bi bi-qr-code-scan"></i>
+                                <span>QR Attendance</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="Attendance.aspx" class="nav-link">
+                                <i class="bi bi-calendar-check-fill"></i>
+                                <span>Attendance</span>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <!-- SECTION: MANAGEMENT -->
+                    <div class="nav-section-title">Management</div>
+                    <ul class="sidebar-nav">
+                        <li class="nav-item">
+                            <a href="Leaves.aspx" class="nav-link">
+                                <i class="bi bi-calendar-week-fill"></i>
+                                <span>Leaves</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="Holidays.aspx" class="nav-link">
+                                <i class="bi bi-calendar-heart-fill"></i>
+                                <span>Holidays</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="Salary.aspx" class="nav-link">
+                                <i class="bi bi-cash-stack"></i>
+                                <span>Salary</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="Payroll.aspx" class="nav-link">
+                                <i class="bi bi-receipt-cutoff"></i>
+                                <span>Payroll</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="Reports.aspx" class="nav-link">
+                                <i class="bi bi-bar-chart-fill"></i>
+                                <span>Reports</span>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <!-- SECTION: CONFIGURATION -->
+                    <div class="nav-section-title">Configuration</div>
+                    <ul class="sidebar-nav">
+                        <li class="nav-item">
+                            <a href="Rules.aspx" class="nav-link">
+                                <i class="bi bi-sliders"></i>
+                                <span>Attendance Rules</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="AdminUsers.aspx" class="nav-link">
+                                <i class="bi bi-shield-lock-fill"></i>
+                                <span>Admin Users</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="ActivityLogs.aspx" class="nav-link">
+                                <i class="bi bi-clock-history"></i>
+                                <span>Activity Logs</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="Settings.aspx" class="nav-link">
+                                <i class="bi bi-gear-fill"></i>
+                                <span>Settings</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- SIDEBAR FOOTER -->
+                <div class="sidebar-footer">
+                    <div class="admin-mini-card">
+                        <div class="admin-avatar">RS</div>
+                        <div class="admin-meta">
+                            <div class="name">Rajesh Sharma</div>
+                            <div class="role">Super Admin</div>
+                        </div>
+                        <a href="Login.aspx" class="btn btn-sm btn-link text-white-50 p-1" title="Sign Out">
+                            <i class="bi bi-box-arrow-right fs-5"></i>
+                        </a>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- MOBILE OFFCANVAS SIDEBAR -->
+            <div class="offcanvas offcanvas-start sidebar-offcanvas" tabindex="-1" id="mobileSidebarOffcanvas" aria-labelledby="mobileSidebarLabel">
+                <div class="offcanvas-header border-bottom border-secondary border-opacity-25 py-3">
+                    <div class="brand-link">
+                        <div class="brand-icon">
+                            <i class="bi bi-fingerprint"></i>
+                        </div>
+                        <span class="fs-5 fw-bold text-white">OfficeTrack</span>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body p-3">
+                    <div class="nav-section-title text-secondary">Main</div>
+                    <ul class="sidebar-nav">
+                        <li class="nav-item"><a href="dashboard.aspx" class="nav-link"><i class="bi bi-grid-1x2-fill"></i> Dashboard</a></li>
+                        <li class="nav-item"><a href="Employees.aspx" class="nav-link"><i class="bi bi-people-fill"></i> Employees</a></li>
+                        <li class="nav-item"><a href="QR.aspx" class="nav-link"><i class="bi bi-qr-code-scan"></i> QR Attendance</a></li>
+                        <li class="nav-item"><a href="Attendance.aspx" class="nav-link"><i class="bi bi-calendar-check-fill"></i> Attendance</a></li>
+                    </ul>
+
+                    <div class="nav-section-title text-secondary mt-3">Management</div>
+                    <ul class="sidebar-nav">
+                        <li class="nav-item"><a href="Leaves.aspx" class="nav-link"><i class="bi bi-calendar-week-fill"></i> Leaves</a></li>
+                        <li class="nav-item"><a href="Holidays.aspx" class="nav-link"><i class="bi bi-calendar-heart-fill"></i> Holidays</a></li>
+                        <li class="nav-item"><a href="Salary.aspx" class="nav-link"><i class="bi bi-cash-stack"></i> Salary</a></li>
+                        <li class="nav-item"><a href="Payroll.aspx" class="nav-link"><i class="bi bi-receipt-cutoff"></i> Payroll</a></li>
+                        <li class="nav-item"><a href="Reports.aspx" class="nav-link"><i class="bi bi-bar-chart-fill"></i> Reports</a></li>
+                    </ul>
+
+                    <div class="nav-section-title text-secondary mt-3">Configuration</div>
+                    <ul class="sidebar-nav">
+                        <li class="nav-item"><a href="Rules.aspx" class="nav-link"><i class="bi bi-sliders"></i> Attendance Rules</a></li>
+                        <li class="nav-item"><a href="AdminUsers.aspx" class="nav-link"><i class="bi bi-shield-lock-fill"></i> Admin Users</a></li>
+                        <li class="nav-item"><a href="ActivityLogs.aspx" class="nav-link"><i class="bi bi-clock-history"></i> Activity Logs</a></li>
+                        <li class="nav-item"><a href="Settings.aspx" class="nav-link"><i class="bi bi-gear-fill"></i> Settings</a></li>
+                    </ul>
+
+                    <div class="mt-4 pt-3 border-top border-secondary border-opacity-25">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <div class="d-flex align-items-center gap-2">
+                                <div class="admin-avatar">RS</div>
+                                <div>
+                                    <div class="text-white small fw-bold">Rajesh Sharma</div>
+                                    <div class="text-white-50" style="font-size: 0.72rem;">admin@officetrack.com</div>
+                                </div>
+                            </div>
+                            <a href="Login.aspx" class="btn btn-outline-danger btn-sm">
+                                <i class="bi bi-box-arrow-right"></i> Logout
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MAIN CONTENT WRAPPER -->
+            <div class="app-main">
+                <!-- TOP NAVBAR -->
+                <header class="app-topbar">
+                    <div class="topbar-left">
+                        <!-- Mobile Hamburger Button -->
+                        <button class="btn btn-sm btn-outline-navy d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileSidebarOffcanvas" aria-controls="mobileSidebarOffcanvas" aria-label="Toggle navigation">
+                            <i class="bi bi-list fs-5"></i>
+                        </button>
+
+                        <div class="d-none d-sm-flex align-items-center gap-2 text-muted" style="font-size: 0.8rem;">
+                            <i class="bi bi-calendar3"></i>
+                            <span class="fw-semibold text-dark">Thursday, Oct 29, 2026</span>
+                            <span class="text-muted">•</span>
+                            <span class="badge bg-light text-dark border live-time-display font-monospace">10:45:00 AM</span>
+                        </div>
+                    </div>
+
+                    <div class="topbar-right">
+                        <!-- Quick QR Shortcut -->
+                        <a href="QR.aspx" class="btn btn-sm btn-outline-navy d-none d-md-inline-flex" title="Show Live Terminal QR">
+                            <i class="bi bi-qr-code"></i>
+                            <span>Office QR</span>
+                        </a>
+
+                        <!-- Notification Dropdown -->
+                        <div class="dropdown">
+                            <button class="topbar-btn" type="button" id="notifDropdown" data-bs-toggle="dropdown" aria-expanded="false" title="Notifications">
+                                <i class="bi bi-bell"></i>
+                                <span class="badge-dot"></span>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end shadow-sm border p-2" aria-labelledby="notifDropdown" style="width: 290px;">
+                                <li class="dropdown-header d-flex justify-content-between align-items-center px-2 py-1">
+                                    <span class="fw-bold text-navy">Notifications</span>
+                                    <span class="badge bg-danger">3 New</span>
+                                </li>
+                                <li><hr class="dropdown-divider my-1" /></li>
+                                <li>
+                                    <a class="dropdown-item rounded p-2" href="Leaves.aspx">
+                                        <div class="d-flex gap-2">
+                                            <i class="bi bi-calendar-event text-warning fs-5"></i>
+                                            <div>
+                                                <div class="small fw-semibold">2 Pending Leave Requests</div>
+                                                <div class="text-muted" style="font-size: 0.72rem;">Rahul Verma & Priya Sen</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item rounded p-2" href="Attendance.aspx">
+                                        <div class="d-flex gap-2">
+                                            <i class="bi bi-exclamation-triangle text-danger fs-5"></i>
+                                            <div>
+                                                <div class="small fw-semibold">4 Late Arrivals Today</div>
+                                                <div class="text-muted" style="font-size: 0.72rem;">Exceeded 15 min grace window</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item rounded p-2" href="QR.aspx">
+                                        <div class="d-flex gap-2">
+                                            <i class="bi bi-check-circle text-success fs-5"></i>
+                                            <div>
+                                                <div class="small fw-semibold">Daily QR Code Active</div>
+                                                <div class="text-muted" style="font-size: 0.72rem;">Valid for today's office shift</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- User Profile Dropdown -->
+                        <div class="dropdown">
+                            <button class="btn p-0 border-0 d-flex align-items-center gap-2" type="button" id="userMenuDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                <div class="admin-avatar" style="width: 36px; height: 36px; background-color: var(--primary-navy); border-color: var(--border-color);">
+                                    RS
+                                </div>
+                                <div class="d-none d-md-block text-start">
+                                    <div class="fw-semibold text-navy lh-1" style="font-size: 0.84rem;">Rajesh Sharma</div>
+                                    <div class="text-muted" style="font-size: 0.7rem;">Super Admin</div>
+                                </div>
+                                <i class="bi bi-chevron-down text-muted small ms-1"></i>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end shadow-sm border" aria-labelledby="userMenuDropdown">
+                                <li><a class="dropdown-item py-2" href="Settings.aspx"><i class="bi bi-person-gear me-2"></i> Profile & Settings</a></li>
+                                <li><a class="dropdown-item py-2" href="ActivityLogs.aspx"><i class="bi bi-clock-history me-2"></i> Audit Logs</a></li>
+                                <li><hr class="dropdown-divider" /></li>
+                                <li><a class="dropdown-item py-2 text-danger" href="Login.aspx"><i class="bi bi-box-arrow-right me-2"></i> Sign Out</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </header>
+
+                <!-- MAIN ASP.NET CONTENT BODY -->
+                <main id="main-content" class="page-content-wrapper" role="main">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </main>
+            </div>
+        </div>
+    </form>
+
+    <!-- Bootstrap 5 Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- OfficeTrack Admin Vanilla JS -->
+    <script src="Assets/js/admin.js"></script>
+
+    <!-- Script PlaceHolder for Page Specific Scripts -->
+    <asp:ContentPlaceHolder ID="ScriptsContent" runat="server">
+    </asp:ContentPlaceHolder>
+</body>
+</html>
